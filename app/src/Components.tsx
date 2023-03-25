@@ -16,6 +16,11 @@ import {
 
 
 
+export function InnerHtml({htmlText}: {htmlText: string}) {
+    return <div dangerouslySetInnerHTML={{ __html: htmlText }} />;
+}
+
+
 export function Box(
     {title, theme, children}: 
     {title: string, theme: "day" | "night", children: React.ReactNode}
@@ -35,17 +40,19 @@ export function Box(
 
 
 export function NavBox(
-    {title, theme, children}: 
-    {title: string, theme: "day" | "night", children: React.ReactNode}
+    {title, theme, linkTo, children}: {
+        title: string, 
+        theme: "day" | "night", 
+        linkTo: string, 
+        children: React.ReactNode
+    }
 ) {
     let buttonProps = 
         "nes-btn showcode pixel-title" + (theme === "day" ? " is-primary" : " is-warning");
     return (
         <Box title={title} theme={theme}>
             {children}
-            <button type="button" className={buttonProps}>
-                &gt;&gt;=
-            </button>
+            <Link className={buttonProps} to={linkTo}>&gt;&gt;=</Link>
         </Box>
     );
 }
@@ -58,7 +65,7 @@ export function Navbar() {
         <ul className="Navbar center">
             <li><Link to="/" className="nes-text is-primary pixel-title">Home</Link></li>
             <li><Link to="/blogs" className="nes-text is-success pixel-title">Blogs</Link></li>
-            <li><Link to="/contract" className="nes-text is-warning pixel-title">Contact</Link></li>
+            <li><Link to="/contact" className="nes-text is-warning pixel-title">Contact</Link></li>
             <li><Link  to="/about" className="nes-text is-error pixel-title">About</Link></li>
         </ul>
         

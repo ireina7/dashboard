@@ -16,17 +16,18 @@ import { Box, NavBox, Navbar, Footer, Page } from './Components';
 import { ErrorPage } from './pages/Error';
 import { AboutPage } from './pages/About';
 import { IndexPage } from './pages/Index'; 
-import { BlogIndexPage, Blog } from './pages/Blog';
+import { BlogIndexPage, Blog, BlogPage, BlogHeader, LinkBlogPage } from './pages/Blog';
 
 
 
 
-const blogs: Blog[] = [
+const blogs: BlogHeader[] = [
     {
         title: "Test blog",
         author: "Ireina",
-        date: "",
-        preview: "test page"
+        date: "2023-03-25",
+        preview: "# Marked in the browser\n\nRendered by **marked**.",
+        link: "/blog/0"
     }
 ]
 
@@ -37,7 +38,9 @@ function App() {
                 <Route path={"/"} element={<IndexPage />} />
                 <Route path={"/blogs"} element={<BlogIndexPage blogs={blogs}/>} />
                 <Route path={"/about"} element={<AboutPage />} />
+                <Route path={"/contact"} element={<AboutPage />} />
                 <Route path={"/error"} element={<ErrorPage error="Test error"/>} />
+                <Route path={"/blog/:id"} element={<LinkBlogPage />} />
             </Routes>
         </Router>
     );

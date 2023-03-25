@@ -36,14 +36,14 @@ export function IndexPage() {
         <Page title="Dashboard函数式导航盘">
             <p className="pixel-title">Modules listed below:</p>
 
-            <NavBox title="Blog" theme="day">
+            <NavBox title="Blog" theme="day" linkTo="/blogs">
                 <p className="pure-text">
                     The official Blog articles frowns upon the use of inline styling as a primary means of styling projects and recommends the use of the className attribute instead.
                 </p>
             </NavBox>
             <br />
 
-            <NavBox title="中文显示搭建过程" theme="night">
+            <NavBox title="中文显示搭建过程" theme="night" linkTo="">
                 <p className="pure-text">
                 The official React documentation frowns upon the use of inline styling as a primary means of styling projects and recommends the use of the className attribute instead.
                 </p>
