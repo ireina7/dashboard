@@ -1,7 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import "../node_modules/nes.css/css/nes.css"
+import React, { useState } from 'react';
+import logo from '../logo.svg';
+import '../App.scss';
+import "../../node_modules/nes.css/css/nes.css"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { shadesOfPurple } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {

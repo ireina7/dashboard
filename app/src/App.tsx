@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import "../node_modules/nes.css/css/nes.css"
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { shadesOfPurple } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {
     BrowserRouter as Router,
     Routes,
     Route,
     Link,
-    // useRouteMatch,
     useParams
 } from "react-router-dom";
-import { Box, NavBox, Navbar, Footer, Page } from './Components';
+// import { Box, NavBox, Navbar, Footer, Page } from './components/Components';
 import { ErrorPage } from './pages/Error';
 import { AboutPage } from './pages/About';
 import { IndexPage } from './pages/Index'; 
-import { BlogIndexPage, Blog, BlogPage, BlogHeader, LinkBlogPage } from './pages/Blog';
+import { BlogIndexPage, Blog, BlogPage, BlogHeader, LinkBlogPage, BlogWritingPage } from './pages/Blog';
 
 
 
@@ -32,6 +29,10 @@ const blogs: BlogHeader[] = [
 ]
 
 function App() {
+    // useEffect(() => {
+    //     dotenv.config()
+    //     console.log(process.env)
+    // }, [])
     return (
         <Router>
             <Routes>
@@ -41,6 +42,7 @@ function App() {
                 <Route path={"/contact"} element={<AboutPage />} />
                 <Route path={"/error"} element={<ErrorPage error="Test error"/>} />
                 <Route path={"/blog/:id"} element={<LinkBlogPage />} />
+                <Route path={"/blogwriting"} element={<BlogWritingPage />} />
             </Routes>
         </Router>
     );
